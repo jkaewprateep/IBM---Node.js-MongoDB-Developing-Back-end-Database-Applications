@@ -44,6 +44,8 @@ Employee.find().then((data)=>{
 
 ## app_delete.js ##
 
+🧸💬 Delete database records by condition and error handling with error message return .</br>
+
 ```
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
