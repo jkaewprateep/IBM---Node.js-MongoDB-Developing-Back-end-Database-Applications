@@ -24,7 +24,7 @@ IBM - Node.js & MongoDB Developing Back-end Database Applications
     <b> Pictures from the Internet </b> </br>
 </p>
 
-## app.js ##
+## app.js / app_list.js ##
 
 🧸💬 Import module, define a variable, connect to the database, and query for data with MongoDB.find() .</br>
 🐑💬 ➰ From the mongoose model use the data model Employee connects to MongoDB database and executes the standard MongoDB command Employee.find() for promise, write into data console, and close connection to the database.</br>
@@ -159,24 +159,6 @@ newEmployee.save().then(function(){
 }).catch(function(error){
     console.log(error)
 });
-```
-
-## app_list.js ##
-
-🧸💬 Import module, define variable, connect to database, and query for data with MongoDB.find() .</br>
-
-```
-const mongoose = require('mongoose');
-const Employee = require('./employee');
-
-const uri =  "mongodb://root:MjI4MjMtamthZXdw@localhost:27017";
-
-mongoose.connect(uri,{'dbName':'employeeDB'});
-
-Employee.find().then((data)=>{
-            console.log(data);
-            mongoose.connection.close()
-        })
 ```
 
 ## app_update.js ##
