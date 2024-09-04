@@ -39,6 +39,9 @@ IBM - Node.js & MongoDB Developing Back-end Database Applications
     <b> Pictures from the Internet </b> </br>
 </p>
 
+🧸💬 The backend development is the data communication process and organization control for the solution designed for registration central. </br>
+🐑💬 ➰ Working with fast communication updates and responses is desired by many of software solution developers when data application flow and application requirements are crafted, developed, and organized here. </br>
+
 ## app.js / app_list.js ##
 
 🧸💬 Import module, define a variable, connect to the database, and query for data with MongoDB.find() .</br>
