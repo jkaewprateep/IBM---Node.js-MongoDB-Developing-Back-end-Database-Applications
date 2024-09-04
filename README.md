@@ -619,6 +619,8 @@ app.listen(PORT, () => {
 🦁💬 Within session communication create and standard session and encryption communication message requirements the hash algorithm and encryption compare message for authentication perform for authentication method. This aims to reduce the database information record patterns and data management tasks by validating user input by comparing encrypted strings. There are more security standards to apply with secured HTTP session communication select for 1.1, 2.0, and 3.0 with/without TLS or selective communication protocols.</br>
 🦁💬 Working with cookies for communication of the sessions variable is good for client debugging but secured information controlled, selected, and data information retrievable only sufficient for client operations requested.</br>
 
+[Compact_communication]( https://github.com/jkaewprateep/Compact_communication/blob/main/README.md ) </br>
+
 ```
 // Added
 const bcrypt = require("bcrypt")
