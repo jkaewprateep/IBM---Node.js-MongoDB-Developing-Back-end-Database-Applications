@@ -129,7 +129,9 @@ mongoose.connect(uri,{'dbName':'employeeDB'})
 
 ## app_insertOne.js ##
 
-🧸💬 Define constant, connect MongoDB, insert one data records and error handling with error message return .</br>
+🧸💬 Define constant, connect MongoDB, insert one data record, and error handling with error message return .</br>
+🐑💬 ➰ In the case of communication limited on the remote database server or versions of driver communication limited the insertOne() is working, the save function is the confirmation result method and the platform programmer selects to use the save function because the effects are confirmed result and _id information insert into the result set.</br>
+🦭💬 That is because I do not want to lookup the database for _id filed again that is my programming logic, selecting a good function will return life safely.</br>
 
 ```
 const mongoose = require('mongoose');
