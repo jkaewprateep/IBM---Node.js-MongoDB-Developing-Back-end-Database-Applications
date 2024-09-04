@@ -122,6 +122,8 @@ mongoose.connect(uri,{'dbName':'employeeDB'})
 
 ## app_insertOne.js ##
 
+🧸💬 Define constant, connect MongoDB, insert one data records and error handling with error message return .</br>
+
 ```
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
