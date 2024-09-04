@@ -154,7 +154,7 @@ newEmployee.save().then(function(){
 
 ## app_list.js ##
 
-🧸💬 Import module, define variable, connect to database and query for data with MongoDB.find() .</br>
+🧸💬 Import module, define variable, connect to database, and query for data with MongoDB.find() .</br>
 
 ```
 const mongoose = require('mongoose');
@@ -171,6 +171,8 @@ Employee.find().then((data)=>{
 ```
 
 ## app_update.js ##
+
+🧸💬 Define constant, connect MongoDB, update one data record with filter condition, and error handling with error message return .</br>
 
 ```
 const mongoose = require('mongoose');
