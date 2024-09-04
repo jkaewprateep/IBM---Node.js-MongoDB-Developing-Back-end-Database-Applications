@@ -20,6 +20,8 @@ IBM - Node.js & MongoDB Developing Back-end Database Applications
 ## Development IDE or using Notepad ++ application ##
 
 🧸💬 Sample of development IDE for multi-languages development platform, debugging code and communication debugging with published tools and team project.</br>
+🐑💬 ➰ Is notepad still alive⁉️ </br>
+🥺💬 Still here but this time very busy because of too many non-business activities somebody is trying to create.</br>
 
 <p align="center" width="100%">
     <img width="40%" src="https://github.com/jkaewprateep/IBM---Node.js-MongoDB-Developing-Back-end-Database-Applications/blob/main/DekDee_Client.png">
