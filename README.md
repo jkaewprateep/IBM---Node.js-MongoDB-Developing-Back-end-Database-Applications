@@ -477,6 +477,8 @@ app.listen(port, () => {
 
 ## employee.js ##
 
+🧸💬 Define employee data model .</br>
+
 ```
 const mongoose = require('mongoose');
 
@@ -505,6 +507,8 @@ module.exports = mongoose.model('employees', employees);
 ```
 
 ## employee_list_app.js ##
+
+🧸💬 Define constant, application methods, module export variable, define add_employee .</br>
 
 ```
 const mongoose = require('mongoose');
@@ -558,6 +562,8 @@ app.listen(port, () => {
 
 ## customer.js ##
 
+🧸💬 Define customer data model .</br>
+
 ```
 // Importing the 'mongoose' library, which is an ODM (Object Data Modeling) library for MongoDB.
 const mongoose = require('mongoose');
@@ -598,6 +604,8 @@ module.exports = CustomersModel;
 ```
 
 ## customer_app.js ##
+
+🧸💬 Define constant, application methods, module export variable, define login, and add_customer .</br>
 
 ```
 // Importing necessary libraries and modules
@@ -682,6 +690,8 @@ app.listen(port, () => {
 
 ## fileuploadapp.js ##
 
+🧸💬 Define constant, application methods, module export variable, define upload file and directory list .</br>
+
 ```
 const express = require('express');
 const multer = require('multer');
@@ -751,6 +761,8 @@ app.listen(port, () => {
 ---
 
 ## jwt ##
+
+🧸💬 Define constant, application methods, module export variable, define register, login and dashboard with jwt secured compoent .</br>
 
 ```
 // index.js
