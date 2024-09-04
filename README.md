@@ -50,7 +50,8 @@ IBM - Node.js & MongoDB Developing Back-end Database Applications
 🧸💬 Define employee data model .</br>
 🐑💬 ➰ A good data model should have infomration required for the process with less time access involved into many sources, multiple-access times are possible but connecting to multiple data sources creates of infomration requirements and infomration updates may required for interactions between the data sources. </br>
 
-[Similarity and differentiation of JavaScript and Node.js with Django on node.js]( https://github.com/jkaewprateep/javascripts_vs_node-js/blob/main/README.md ) </br>
+[Similarity and differentiation of JavaScript and Node.js with Django on node.js] </br>
+( https://github.com/jkaewprateep/javascripts_vs_node-js/blob/main/README.md ) </br>
 
 ```
 const mongoose = require('mongoose');
