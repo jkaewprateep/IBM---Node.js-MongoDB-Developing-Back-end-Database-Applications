@@ -213,6 +213,8 @@ mongoose.connect(uri,{'dbName':'employeeDB'})
 
 ## employee.js ##
 
+🧸💬 Define employee data model .</br>
+
 ```
 const mongoose = require('mongoose');
 
@@ -243,6 +245,8 @@ module.exports = mongoose.model('employees', employees);
 ---
 
 ## customer.js ##
+
+🧸💬 Define customer data model .</br>
 
 ```
 // Importing the 'mongoose' library, which is an ODM (Object Data Modeling) library for MongoDB.
@@ -284,6 +288,8 @@ module.exports = CustomersModel;
 ```
 
 ## customer_app.js ##
+
+🧸💬 Define constant, application methods, module export variable, define registration, and login and logout method .</br>
 
 ```
 // Added
