@@ -26,6 +26,8 @@ IBM - Node.js & MongoDB Developing Back-end Database Applications
 
 ## app.js ##
 
+🧸💬 Import module, define variable, connect to database and query for data with MongoDB.find() .</br>
+
 ```
 const mongoose = require('mongoose');
 const Employee = require('./employee');
