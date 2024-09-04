@@ -85,7 +85,9 @@ mongoose.connect(uri,{'dbName':'employeeDB'})
 
 ## app_insertMany.js ##
 
-🧸💬 Define constant, connect MongoDB, insert multiple data records and error handling with error message return .</br>
+🧸💬 Define constant, connect MongoDB, insert multiple data records, and error handling with error message return .</br>
+🐯💬 There is an insert of multiple method functions and there is no insert one method function, The programmer saves time in managing of this data insert function built by the user's requirements and creating the Culture-INFO. Later we create a data method by adding a function in the data module same as insert_or_update but utilizes the data information result set to return for the same format method for insert many and insert one record.</br>
+🦁💬 That is a good thing that MongoDB has a built-in function for insertion and update and the platform programmer utilizes the idea and creates a modified of the data module, returns result set format for one record return, empty, custom error message and information for communications. In the later versions of MongoDB the data return for one record dataset and many record datasets are the same format and you can specify in the filter for information required to add into the results set for application build communication protocol, seems mongoDB understands of these requirements well.</br>
 
 ```
 const mongoose = require('mongoose');
