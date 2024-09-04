@@ -310,6 +310,7 @@ mongoose.connect(uri,{'dbName':'employeeDB'})
 ### employee_list_app.js ###
 
 🧸💬 Define constant, application methods, module export variable, define add_employee .</br>
+🐑💬 ➰ Using the Javascript to return of the information result set from the database lookup operation, and database insert / update operation is useful with the asynchronous method, and the platform programmer selects to use the async method with the database save method because of the problem of guarantee results return and priority process at the same time. Compared with the insert and update method when there is some error information or communication message for validation of a new record aggregated from data operation you need to wait for an update but it is ready to process and the event is tricker with the save and async method.</br>
 
 ```
 const mongoose = require('mongoose');
