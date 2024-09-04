@@ -17,6 +17,13 @@ IBM - Node.js & MongoDB Developing Back-end Database Applications
     <b> Pictures from the Internet </b> </br>
 </p>
 
+---
+
+<p align="center" width="100%">
+    <img width="60%" src="https://github.com/jkaewprateep/IBM---Node.js-MongoDB-Developing-Back-end-Database-Applications/blob/main/Screenshot%202024-09-04%20143355.png"> </br>
+    <b> Pictures from the Internet </b> </br>
+</p>
+
 ## app.js ##
 
 ```
@@ -808,6 +815,37 @@ app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
 ```
+
+### Sample ###
+
+<p align="center" width="100%">
+	<img width="25%" src="https://github.com/jkaewprateep/IBM---Node.js-MongoDB-Developing-Back-end-Database-Applications/blob/main/web01.png">
+    <img width="25%" src="https://github.com/jkaewprateep/IBM---Node.js-MongoDB-Developing-Back-end-Database-Applications/blob/main/web02.png">
+    <img width="25%" src="https://github.com/jkaewprateep/IBM---Node.js-MongoDB-Developing-Back-end-Database-Applications/blob/main/web03.png">
+    <img width="25%" src="https://github.com/jkaewprateep/IBM---Node.js-MongoDB-Developing-Back-end-Database-Applications/blob/main/web04.png">
+    <img width="25%" src="https://github.com/jkaewprateep/IBM---Node.js-MongoDB-Developing-Back-end-Database-Applications/blob/main/web05.png">
+    <img width="25%" src="https://github.com/jkaewprateep/IBM---Node.js-MongoDB-Developing-Back-end-Database-Applications/blob/main/web06.png">
+    <img width="25%" src="https://github.com/jkaewprateep/IBM---Node.js-MongoDB-Developing-Back-end-Database-Applications/blob/main/web07.png">
+    <img width="25%" src="https://github.com/jkaewprateep/IBM---Node.js-MongoDB-Developing-Back-end-Database-Applications/blob/main/web08.png">
+    <img width="25%" src="https://github.com/jkaewprateep/IBM---Node.js-MongoDB-Developing-Back-end-Database-Applications/blob/main/web09.png">
+    <img width="25%" src="https://github.com/jkaewprateep/IBM---Node.js-MongoDB-Developing-Back-end-Database-Applications/blob/main/web10.png">
+    <img width="25%" src="https://github.com/jkaewprateep/IBM---Node.js-MongoDB-Developing-Back-end-Database-Applications/blob/main/web11.png">
+    <img width="25%" src="https://github.com/jkaewprateep/IBM---Node.js-MongoDB-Developing-Back-end-Database-Applications/blob/main/web12.png">
+    <img width="25%" src="https://github.com/jkaewprateep/IBM---Node.js-MongoDB-Developing-Back-end-Database-Applications/blob/main/web13.png">
+    <img width="25%" src="https://github.com/jkaewprateep/IBM---Node.js-MongoDB-Developing-Back-end-Database-Applications/blob/main/web14.png">
+    <img width="25%" src="https://github.com/jkaewprateep/IBM---Node.js-MongoDB-Developing-Back-end-Database-Applications/blob/main/web15.png">
+    <img width="25%" src="https://github.com/jkaewprateep/IBM---Node.js-MongoDB-Developing-Back-end-Database-Applications/blob/main/web16.png">
+    <img width="25%" src="https://github.com/jkaewprateep/IBM---Node.js-MongoDB-Developing-Back-end-Database-Applications/blob/main/web17.png">
+    <img width="25%" src="https://github.com/jkaewprateep/IBM---Node.js-MongoDB-Developing-Back-end-Database-Applications/blob/main/web18.png">
+    <img width="25%" src="https://github.com/jkaewprateep/IBM---Node.js-MongoDB-Developing-Back-end-Database-Applications/blob/main/web19.png">
+    <img width="25%" src="https://github.com/jkaewprateep/IBM---Node.js-MongoDB-Developing-Back-end-Database-Applications/blob/main/web20.png">
+    <img width="25%" src="https://github.com/jkaewprateep/IBM---Node.js-MongoDB-Developing-Back-end-Database-Applications/blob/main/web21.png">
+    <img width="25%" src="https://github.com/jkaewprateep/IBM---Node.js-MongoDB-Developing-Back-end-Database-Applications/blob/main/web22.png">
+    <img width="25%" src="https://github.com/jkaewprateep/IBM---Node.js-MongoDB-Developing-Back-end-Database-Applications/blob/main/web23.png">
+    <img width="25%" src="https://github.com/jkaewprateep/IBM---Node.js-MongoDB-Developing-Back-end-Database-Applications/blob/main/web24.png">
+    <img width="25%" src="https://github.com/jkaewprateep/IBM---Node.js-MongoDB-Developing-Back-end-Database-Applications/blob/main/web25.png">
+    <img width="25%" src="https://github.com/jkaewprateep/IBM---Node.js-MongoDB-Developing-Back-end-Database-Applications/blob/main/web26.png">	</br>
+</p>
 
 ---
 
