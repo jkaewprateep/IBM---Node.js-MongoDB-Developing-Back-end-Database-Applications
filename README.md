@@ -17,6 +17,17 @@ IBM - Node.js & MongoDB Developing Back-end Database Applications
     <b> Pictures from the Internet </b> </br>
 </p>
 
+## Development IDE or using Notepad ++ application ##
+
+🧸💬 Sample of development IDE for multi-languages development platform, debugging code and communication debugging with published tools and team project.</br>
+
+<p align="center" width="100%">
+    <img width="40%" src="https://github.com/jkaewprateep/IBM---Node.js-MongoDB-Developing-Back-end-Database-Applications/blob/main/DekDee_Client.png">
+    <img width="40%" src="https://github.com/jkaewprateep/IBM---Node.js-MongoDB-Developing-Back-end-Database-Applications/blob/main/application_withdatabase.png"> </br>
+    <b> My simple client, embedded message for CTI communications | </b>
+    <b> My simple client with database communication on web application engine support RedHat and Debian </b> </br>
+</p>
+
 ---
 
 <p align="center" width="100%">
