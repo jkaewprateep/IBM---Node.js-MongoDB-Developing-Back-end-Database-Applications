@@ -48,6 +48,7 @@ Employee.find().then((data)=>{
 ## app_delete.js ##
 
 🧸💬 Delete database records by condition and error handling with error message return .</br>
+🦭💬 By Employee.deleteOne() function method scope of the filter record condition parameter perform and code handling, apply regex expression parameter for emp_name with the alphabet R leading information and database code connection handling. By regular expression filter, we can create flexible data record selection from single expression and useful when working with import string data field. </br>
 
 ```
 const mongoose = require('mongoose');
