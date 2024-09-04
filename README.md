@@ -220,3 +220,599 @@ const employees = new Schema({
 
 module.exports = mongoose.model('employees', employees);
 ```
+
+---
+
+## customer.js ##
+
+```
+// Importing the 'mongoose' library, which is an ODM (Object Data Modeling) library for MongoDB.
+const mongoose = require('mongoose');
+
+// Creating a schema using the 'Schema' class from mongoose.
+const Schema = mongoose.Schema;
+
+// Defining a schema for the 'customers' collection in MongoDB.
+const customersSchema = new Schema({
+    // Field for storing the user's name as a string.
+    user_name: {
+        type: String,   // Data type is String.
+        required: true  // The field is required and must have a value.
+    },
+    // Field for storing the user's password as a string.
+    password: {
+        type: String,   // Data type is String.
+        required: true  // The field is required and must have a value.
+    },
+    // Field for storing the user's email address as a string.
+    email: {
+        type: String,   // Data type is String.
+        required: true  // The field is required and must have a value.
+    },
+    // Field for storing the user's age as a number.
+    age: {
+        type: Number,   // Data type is Number.
+        required: true  // The field is required and must have a value.
+    }
+});
+
+// Creating a model from the schema. This model will represent the 'customers' collection in MongoDB.
+// The first argument is the name of the collection, and the second argument is the schema.
+const CustomersModel = mongoose.model('customers', customersSchema);
+
+// Exporting the CustomersModel to be used in other parts of the application.
+module.exports = CustomersModel;
+```
+
+## customer_app.js ##
+
+```
+// Added
+const bcrypt = require("bcrypt")
+const session = require('express-session');
+const saltRounds = 5
+const password = "admin"
+
+// Importing necessary libraries and modules
+const mongoose = require('mongoose');            // MongoDB ODM library
+const Customers = require('./customer');         // Imported MongoDB model for 'customers'
+const express = require('express');              // Express.js web framework
+const bodyParser = require('body-parser');       // Middleware for parsing JSON requests
+const path = require('path');                    // Node.js path module for working with file and directory paths
+
+// Creating an instance of the Express application
+const app = express();
+
+// Added
+const uuid = require('uuid'); //to generate a unique session id
+
+app.use(session({
+      cookie: { maxAge: 120000 }, // Session expires after 2 minutes of inactivity
+    secret: 'itsmysecret',
+    res: false,
+    saveUninitialized: true,
+    genid: () => uuid.v4()
+}));
+
+// Setting the port number for the server
+const port = 3000;
+
+// MongoDB connection URI and database name
+const uri =  "mongodb://root:MjI4MjMtamthZXdw@localhost:27017";
+mongoose.connect(uri, {'dbName': 'customerDB'});
+
+// Middleware to parse JSON requests
+app.use("*", bodyParser.json());
+
+// Serving static files from the 'frontend' directory under the '/static' route
+app.use('/static', express.static(path.join(".", 'frontend')));
+
+// Middleware to handle URL-encoded form data
+app.use(bodyParser.urlencoded({ extended: true }));
+
+// // POST endpoint for user login
+// app.post('/api/login', async (req, res) => {
+//     const data = req.body;
+//     console.log(data);
+//     let user_name = data['user_name'];
+//     let password = data['password'];
+
+//     // Querying the MongoDB 'customers' collection for matching user_name and password
+//     const documents = await Customers.find({ user_name: user_name, password: password });
+
+//     // If a matching user is found, set the session username and serve the home page
+//     if (documents.length > 0) {
+//         res.send("User Logged In");
+//     } else {
+//         res.send("User Information incorrect");
+//     }
+// });
+// // POST endpoint for user login
+// app.post('/api/login', async (req, res) => {
+//     const data = req.body;
+//     console.log(data);
+
+//     let user_name = data['user_name'];
+//     let password = data['password'];
+
+//     // Querying the MongoDB 'customers' collection for matching user_name and password
+//     const documents = await Customers.find({ user_name: user_name });
+
+//     // If a matching user is found, set the session username and serve the home page
+//     if (documents.length > 0) {
+//         let result = await bcrypt.compare(password, documents[0]['password'])
+//         if(true) {
+//             res.send("User Logged In");
+//         } else {
+//             res.send("Password Incorrect! Try again");
+//         }
+//     } else {
+//         res.send("User Information incorrect");
+//     }
+// });
+// POST endpoint for user login
+app.post('/api/login', async (req, res) => {
+    const data = req.body;
+    console.log(data);
+
+    let user_name = data['user_name'];
+    let password = data['password'];
+
+    // Querying the MongoDB 'customers' collection for matching user_name and password
+    const documents = await Customers.find({ user_name: user_name });
+
+    // If a matching user is found, set the session username and serve the home page
+    if (documents.length > 0) {
+        let result = await bcrypt.compare(password, documents[0]['password'])
+        if(true) {
+            const genidValue = req.sessionID;
+            res.cookie('username', user_name);
+            res.sendFile(path.join(__dirname, 'frontend', 'home.html'));
+        } else {
+            res.send("Password Incorrect! Try again");
+        }
+    } else {
+        res.send("User Information incorrect");
+    }
+});
+
+// // POST endpoint for adding a new customer
+// app.post('/api/add_customer', async (req, res) => {
+//     const data = req.body;
+//     console.log(data)
+//     const documents = await Customers.find({ user_name: data['user_name']});
+//     if (documents.length > 0) {
+//         res.send("User already exists");
+//     }
+    
+//     // Creating a new instance of the Customers model with data from the request
+//     const customer = new Customers({
+//         "user_name": data['user_name'],
+//         "age": data['age'],
+//         "password": data['password'],
+//         "email": data['email']
+//     });
+
+//     // Saving the new customer to the MongoDB 'customers' collection
+//     await customer.save();
+
+//     res.send("Customer added successfully")
+// });
+
+// POST endpoint for adding a new customer
+app.post('/api/add_customer', async (req, res) => {
+    const data = req.body;
+
+    const documents = await Customers.find({ user_name: data['user_name']});
+    if (documents.length > 0) {
+        res.send("User already exists");
+    }
+
+    let hashedpwd = bcrypt.hashSync(data['password'], saltRounds)
+
+    // Creating a new instance of the Customers model with data from the request
+    const customer = new Customers({
+        "user_name": data['user_name'],
+        "age": data['age'],
+        "password": hashedpwd,
+        "email": data['email']
+    });
+
+    // Saving the new customer to the MongoDB 'customers' collection
+    await customer.save();
+
+    res.send("Customer added successfully")
+});
+
+// Added
+// GET endpoint for user logout
+app.get('/api/logout', async (req, res) => {
+    req.session.destroy((err) => {
+        if (err) {
+          console.error(err);
+        } else {
+          res.cookie('username', '', { expires: new Date(0) });
+          res.redirect('/');
+        }
+      });
+});
+
+// GET endpoint for the root URL, serving the home page
+app.get('/', async (req, res) => {
+    res.sendFile(path.join(__dirname, 'frontend', 'home.html'));
+});
+
+// Starting the server and listening on the specified port
+app.listen(port, () => {
+    console.log(`Server is running on http://localhost:${port}`);
+});
+```
+
+---
+
+## employee.js ##
+
+```
+const mongoose = require('mongoose');
+
+const Schema = mongoose.Schema;
+
+const employees = new Schema({
+  emp_name: {
+    type: String,
+    required: true
+  },
+  age: {
+    type: Number,
+    required: true,
+  },
+  location: {
+    type: String,
+    required: true
+  },
+  email: {
+    type: String,
+    required: true
+  }
+});
+
+module.exports = mongoose.model('employees', employees);
+```
+
+## employee_list_app.js ##
+
+```
+const mongoose = require('mongoose');
+const Employees = require('./employee');
+
+const express = require('express');
+// Added
+const cors = require('cors');
+
+const bodyParser = require('body-parser');
+
+const app = express();
+const port = 3002;
+
+//Replace the password in the line below
+const uri =  "mongodb://root:MjI4MjMtamthZXdw@localhost:27017";
+
+mongoose.connect(uri,{'dbName':'employeeDB'});
+
+// Enable CORS for all routes
+app.use(cors());
+
+// Middleware to parse JSON requests
+app.use("*",bodyParser.json());
+
+// GET endpoint
+app.get('/api/employees', async (req, res) => {
+    const documents = await Employees.find();
+    res.json("🧸💬  " + documents);
+});
+
+app.post('/api/add_employee', async (req, res) => {
+    console.log(req);
+    const data = req.body;
+    const emp = new Employees({
+      "emp_name": data['name'],
+      "age": data['age'],
+      "location": data['location'],
+      "email": data['email']
+    });
+    // Save the employee to the database
+    await emp.save();
+    res.json({ message: '🧸💬  Employee added successfully' });
+  });
+
+// Start the server
+app.listen(port, () => {
+  console.log(`Server is running on http://localhost:${port}`);
+});
+```
+
+## customer.js ##
+
+```
+// Importing the 'mongoose' library, which is an ODM (Object Data Modeling) library for MongoDB.
+const mongoose = require('mongoose');
+
+// Creating a schema using the 'Schema' class from mongoose.
+const Schema = mongoose.Schema;
+
+// Defining a schema for the 'customers' collection in MongoDB.
+const customersSchema = new Schema({
+    // Field for storing the user's name as a string.
+    user_name: {
+        type: String,   // Data type is String.
+        required: true  // The field is required and must have a value.
+    },
+    // Field for storing the user's password as a string.
+    password: {
+        type: String,   // Data type is String.
+        required: true  // The field is required and must have a value.
+    },
+    // Field for storing the user's email address as a string.
+    email: {
+        type: String,   // Data type is String.
+        required: true  // The field is required and must have a value.
+    },
+    // Field for storing the user's age as a number.
+    age: {
+        type: Number,   // Data type is Number.
+        required: true  // The field is required and must have a value.
+    }
+});
+
+// Creating a model from the schema. This model will represent the 'customers' collection in MongoDB.
+// The first argument is the name of the collection, and the second argument is the schema.
+const CustomersModel = mongoose.model('customers', customersSchema);
+
+// Exporting the CustomersModel to be used in other parts of the application.
+module.exports = CustomersModel;
+```
+
+## customer_app.js ##
+
+```
+// Importing necessary libraries and modules
+const mongoose = require('mongoose');            // MongoDB ODM library
+const Customers = require('./customer');         // Imported MongoDB model for 'customers'
+const express = require('express');              // Express.js web framework
+const bodyParser = require('body-parser');       // Middleware for parsing JSON requests
+const path = require('path');                    // Node.js path module for working with file and directory paths
+
+// Creating an instance of the Express application
+const app = express();
+
+// Setting the port number for the server
+const port = 3000;
+
+// MongoDB connection URI and database name
+const uri =  "mongodb://root:your_password@localhost:27017";
+mongoose.connect(uri, {'dbName': 'customerDB'});
+
+// Middleware to parse JSON requests
+app.use("*", bodyParser.json());
+
+// Serving static files from the 'frontend' directory under the '/static' route
+app.use('/static', express.static(path.join(".", 'frontend')));
+
+// Middleware to handle URL-encoded form data
+app.use(bodyParser.urlencoded({ extended: true }));
+
+// POST endpoint for user login
+app.post('/api/login', async (req, res) => {
+    const data = req.body;
+    console.log(data);
+    let user_name = data['user_name'];
+    let password = data['password'];
+
+    // Querying the MongoDB 'customers' collection for matching user_name and password
+    const documents = await Customers.find({ user_name: user_name, password: password });
+
+    // If a matching user is found, set the session username and serve the home page
+    if (documents.length > 0) {
+        res.send("User Logged In");
+    } else {
+        res.send("User Information incorrect");
+    }
+});
+
+// POST endpoint for adding a new customer
+app.post('/api/add_customer', async (req, res) => {
+    const data = req.body;
+    console.log(data)
+    const documents = await Customers.find({ user_name: data['user_name']});
+    if (documents.length > 0) {
+        res.send("User already exists");
+    }
+    
+    // Creating a new instance of the Customers model with data from the request
+    const customer = new Customers({
+        "user_name": data['user_name'],
+        "age": data['age'],
+        "password": data['password'],
+        "email": data['email']
+    });
+
+    // Saving the new customer to the MongoDB 'customers' collection
+    await customer.save();
+
+    res.send("Customer added successfully")
+});
+
+// GET endpoint for the root URL, serving the home page
+app.get('/', async (req, res) => {
+    res.sendFile(path.join(__dirname, 'frontend', 'home.html'));
+});
+
+// Starting the server and listening on the specified port
+app.listen(port, () => {
+    console.log(`Server is running on http://localhost:${port}`);
+});
+```
+
+---
+
+## fileuploadapp.js ##
+
+```
+const express = require('express');
+const multer = require('multer');
+const path = require('path');
+const fs = require('fs');
+
+const app = express();
+const port = 3000;
+
+// Define the upload directory path
+const directoryPath = 'uploads/';
+
+// Set up storage for uploaded files
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, directoryPath); // Specify the upload directory
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.originalname); // Use the original file name
+  },
+});
+
+const upload = multer({ storage: storage });
+
+// Serve the HTML form for file upload
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'index.html'));
+});
+
+// Handle file upload
+app.post('/upload', upload.single('file'), (req, res) => {
+  if (!req.file) {
+    return next(new Error('No file uploaded.'));
+  }
+
+  // Access the uploaded file information
+  const uploadedFile = req.file;
+  console.log('Uploaded file:', uploadedFile);
+
+  fs.readdir(directoryPath, (err,files)=>{
+    if (err) {
+      return res.status(500).send('Error reading directory.');
+    }
+    strfilenames = `<a href='/'>Home</a><br/>
+
+`;
+
+    files.forEach((file)=>{
+      strfilenames = `${strfilenames} <a target='_blank' href='file/${file}'>${file}</a><br/>
+
+`;
+    });
+    res.send(strfilenames)
+  });
+
+});
+
+// Serve uploaded files using express.static middleware
+app.use('/file', express.static('uploads'));
+
+// Start the server
+app.listen(port, () => {
+  console.log(`Server is running on http://localhost:${port}`);
+});
+```
+
+---
+
+## jwt ##
+
+```
+// index.js
+
+const express = require('express');
+const jwt = require('jsonwebtoken');
+
+const app = express();
+const secretKey = 'yourSecretKey'; // Replace with your own secret key
+
+app.use(express.json());
+
+// Sample user data (Replace with your database or actual authentication logic)
+const users = [];
+
+// Endpoint for user registration
+app.post('/register', (req, res) => {
+  const { username, password } = req.body;
+
+  // Check if the username already exists
+  const existingUser = users.find((u) => u.username === username);
+  if (existingUser) {
+    return res.status(400).json({ message: 'Username already exists' });
+  }
+
+  // Add new user to the database
+  const newUser = {
+    id: users.length + 1,
+    username,
+    password,
+  };
+  users.push(newUser);
+
+  res.status(201).json({ message: 'User registered successfully' });
+});
+
+// Endpoint for user login
+app.post('/login', (req, res) => {
+  const { username, password } = req.body;
+
+  // Find user by username and password
+  const user = users.find((u) => u.username === username && u.password === password);
+
+  if (user) {
+    // User authenticated, generate token
+    const token = jwt.sign({ id: user.id, username: user.username }, secretKey);
+    res.json({ token });
+  } else {
+    res.status(401).json({ message: 'Invalid credentials' });
+  }
+});
+
+// Protected route example (Dashboard access)
+app.get('/dashboard', verifyToken, (req, res) => {
+  // Return dashboard data or user-specific information
+  res.json({ message: ' 🧸💬  Welcome to the Customer Portal!' });
+});
+
+// Middleware to verify token
+function verifyToken(req, res, next) {
+  const token = req.headers['authorization'];
+
+  if (typeof token !== 'undefined') {
+    jwt.verify(token, secretKey, (err, authData) => {
+      if (err) {
+        res.sendStatus(403);
+      } else {
+        req.authData = authData;
+        next();
+      }
+    });
+  } else {
+    res.sendStatus(401);
+  }
+}
+
+// Start server
+const PORT = 3003;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
+```
+
+---
+
+<p align="center" width="100%">
+    <img width="30%" src="https://github.com/jkaewprateep/advanced_mysql_topics_notes/blob/main/custom_dataset.png">
+    <img width="30%" src="https://github.com/jkaewprateep/advanced_mysql_topics_notes/blob/main/custom_dataset_2.png"> </br>
+    <b> 🥺💬 รับจ้างเขียน functions </b> </br>
+</p>
