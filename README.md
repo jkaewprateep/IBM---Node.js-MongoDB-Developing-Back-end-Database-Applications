@@ -83,6 +83,7 @@ module.exports = mongoose.model('employees', employees);
 ### customer.js ###
 
 🧸💬 Define customer data model .</br>
+🐑💬 ➰ From the data model library or import from database schemas, the class is automatically created the same as in C# and Python programming development platform, and in Django, MySQL, and data integration in databases there are database relationships, unique, key constraints, and foreign key relationship database validation. </br>
 
 ```
 // Importing the 'mongoose' library, which is an ODM (Object Data Modeling) library for MongoDB.
