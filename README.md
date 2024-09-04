@@ -164,6 +164,7 @@ newEmployee.save().then(function(){
 ## app_update.js ##
 
 🧸💬 Define constant, connect MongoDB, update one data record with filter condition, and error handling with error message return .</br>
+🐯💬 In MongoDB there are updateOne and updateMany and if you select updateMany function you save time in validating results because you build your own dataset to update and specific record expression conditions where updateOne you may need to summarize, in the data module in any of the method requirements of updateOne or updateMany the platform programmer create summarize function for return result set format and validation of dependent field in one time as Culture-INFO. MongoDB fast builds and works with transactions when performed summarize for data validation and the data aggregate technique can be performed in a scheduled process or instance process with multiple records requested at one time.</br>
 
 ```
 const mongoose = require('mongoose');
