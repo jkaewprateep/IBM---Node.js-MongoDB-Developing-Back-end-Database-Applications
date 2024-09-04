@@ -454,6 +454,7 @@ app.listen(port, () => {
 ### fileuploadapp.js ###
 
 🧸💬 Define constant, application methods, module export variable, define upload file and directory list .</br>
+🦁💬 That is because of long operating of the function in fileIO, they are supported and working with encoding communications then there is noone try to replace the upload path again but you may if the application allowed it. This is one benefit of continuing development example as fileIO.
 
 ```
 const express = require('express');
@@ -614,7 +615,6 @@ app.listen(PORT, () => {
 ### customer_app.js ( encryption message ) ###
 
 🧸💬 Define constant, application methods, module export variable, define registration, and login and logout method .</br>
-🦁💬 That is because of long operating of the function in fileIO, they are supported and working with encoding communications then there is noone try to replace the upload path again but you may if the application allowed it. This is one benefit of continuing development example as fileIO.</br>
 
 ```
 // Added
