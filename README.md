@@ -42,7 +42,9 @@ IBM - Node.js & MongoDB Developing Back-end Database Applications
 🧸💬 The backend development is the data communication process and organization control for the solution designed for registration central. </br>
 🐑💬 ➰ Working with fast communication updates and responses is desired by many of software solution developers when data application flow and application requirements are crafted, developed, and organized here. </br>
 
-## app.js / app_list.js ##
+## Sample application and configuration ##
+
+### app.js / app_list.js ###
 
 🧸💬 Import module, define a variable, connect to the database, and query for data with MongoDB.find() .</br>
 🐑💬 ➰ From the mongoose model use the data model Employee connects to MongoDB database and executes the standard MongoDB command Employee.find() for promise, write into data console, and close connection to the database.</br>
@@ -63,7 +65,7 @@ Employee.find().then((data)=>{
 })
 ```
 
-## app_delete.js ##
+### app_delete.js ###
 
 🧸💬 Delete database records by condition and error handling with error message return .</br>
 🦭💬 By Employee.deleteOne() function method scope of the filter record condition parameter perform and code handling, apply regex expression parameter for emp_name with the alphabet R leading information and database code connection handling. By regular expression filter, we can create flexible data record selection from single expression and useful when working with import string data field. </br>
@@ -101,7 +103,7 @@ mongoose.connect(uri,{'dbName':'employeeDB'})
     });
 ```
 
-## app_insertMany.js ##
+### app_insertMany.js ###
 
 🧸💬 Define constant, connect MongoDB, insert multiple data records, and error handling with error message return .</br>
 🐯💬 There is an insert of multiple method functions and there is no insert one method function, The programmer saves time in managing of this data insert function built by the user's requirements and creating the Culture-INFO. Later we create a data method by adding a function in the data module same as insert_or_update but utilizes the data information result set to return for the same format method for insert many and insert one record.</br>
@@ -145,7 +147,7 @@ mongoose.connect(uri,{'dbName':'employeeDB'})
     });
 ```
 
-## app_insertOne.js ##
+### app_insertOne.js ###
 
 🧸💬 Define constant, connect MongoDB, insert one data record, and error handling with error message return .</br>
 🐑💬 ➰ In the case of communication limited on the remote database server or versions of driver communication limited the insertOne() is working, the save function is the confirmation result method and the platform programmer selects to use the save function because the effects are confirmed result and _id information insert into the result set.</br>
@@ -179,7 +181,7 @@ newEmployee.save().then(function(){
 });
 ```
 
-## app_update.js ##
+### app_update.js ###
 
 🧸💬 Define constant, connect MongoDB, update one data record with filter condition, and error handling with error message return .</br>
 🐯💬 In MongoDB there are updateOne and updateMany and if you select updateMany function you save time in validating results because you build your own dataset to update and specific record expression conditions where updateOne you may need to summarize, in the data module in any of the method requirements of updateOne or updateMany the platform programmer create summarize function for return result set format and validation of dependent field in one time as Culture-INFO. MongoDB fast builds and works with transactions when performed summarize for data validation and the data aggregate technique can be performed in a scheduled process or instance process with multiple records requested at one time.</br>
@@ -221,7 +223,7 @@ mongoose.connect(uri,{'dbName':'employeeDB'})
     });
 ```
 
-## employee.js ##
+### employee.js ###
 
 🧸💬 Define employee data model .</br>
 
@@ -254,7 +256,7 @@ module.exports = mongoose.model('employees', employees);
 
 ---
 
-## customer.js ##
+### customer.js ###
 
 🧸💬 Define customer data model .</br>
 
@@ -297,7 +299,7 @@ const CustomersModel = mongoose.model('customers', customersSchema);
 module.exports = CustomersModel;
 ```
 
-## customer_app.js ##
+### customer_app.js ###
 
 🧸💬 Define constant, application methods, module export variable, define registration, and login and logout method .</br>
 
@@ -485,7 +487,7 @@ app.listen(port, () => {
 
 ---
 
-## employee.js ##
+### employee.js ###
 
 🧸💬 Define employee data model .</br>
 
@@ -516,7 +518,7 @@ const employees = new Schema({
 module.exports = mongoose.model('employees', employees);
 ```
 
-## employee_list_app.js ##
+### employee_list_app.js ###
 
 🧸💬 Define constant, application methods, module export variable, define add_employee .</br>
 
@@ -570,7 +572,7 @@ app.listen(port, () => {
 });
 ```
 
-## customer.js ##
+### customer.js ###
 
 🧸💬 Define customer data model .</br>
 
@@ -613,7 +615,7 @@ const CustomersModel = mongoose.model('customers', customersSchema);
 module.exports = CustomersModel;
 ```
 
-## customer_app.js ##
+### customer_app.js ###
 
 🧸💬 Define constant, application methods, module export variable, define login, and add_customer .</br>
 
@@ -698,7 +700,7 @@ app.listen(port, () => {
 
 ---
 
-## fileuploadapp.js ##
+### fileuploadapp.js ###
 
 🧸💬 Define constant, application methods, module export variable, define upload file and directory list .</br>
 
@@ -770,7 +772,7 @@ app.listen(port, () => {
 
 ---
 
-## jwt ##
+### jwt ###
 
 🧸💬 Define constant, application methods, module export variable, define register, login and dashboard with jwt secured compoent .</br>
 
@@ -856,7 +858,7 @@ app.listen(PORT, () => {
 });
 ```
 
-### Sample ###
+## Sample ##
 
 <p align="center" width="100%">
 	<img width="25%" src="https://github.com/jkaewprateep/IBM---Node.js-MongoDB-Developing-Back-end-Database-Applications/blob/main/web01.png">
