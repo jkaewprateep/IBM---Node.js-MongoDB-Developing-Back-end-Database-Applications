@@ -80,6 +80,8 @@ mongoose.connect(uri,{'dbName':'employeeDB'})
 
 ## app_insertMany.js ##
 
+🧸💬 Define constant, connect MongoDB, insert multiple data records and error handling with error message return .</br>
+
 ```
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
