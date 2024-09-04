@@ -26,7 +26,10 @@ IBM - Node.js & MongoDB Developing Back-end Database Applications
 
 ## app.js ##
 
-🧸💬 Import module, define variable, connect to database and query for data with MongoDB.find() .</br>
+🧸💬 Import module, define a variable, connect to the database, and query for data with MongoDB.find() .</br>
+🐑💬 ➰ From the mongoose model use the data model Employee connects to MongoDB database and executes the standard MongoDB command Employee.find() for promise, write into data console, and close connection to the database.</br>
+🧸💬 MongoDB has a database connection pool maximum management but database client operation with code handling is preferred, the data management module is a database methods definition created with the project and library mongoose same as in Python and C# language you can modify standard data module methods for external library use, authentication requirements and create shortcut method the repeating process such as data verification or insert and update data record for multiple data tables or database operation.</br>
+🐐💬 It is a shared logical process for multiple database operations, authentication, and information attached because of some organizations may require database connection string, database connection information, version, application name, and identity identify information provided when the database connects and use the database for logging in one-time call function method.</br>
 
 ```
 const mongoose = require('mongoose');
