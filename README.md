@@ -365,6 +365,8 @@ app.listen(port, () => {
 ### customer_app.js ###
 
 🧸💬 Define constant, application methods, module export variable, define login, and add_customer .</br>
+🐑💬 ➰ It is simply a query method but you can perform using of authentication method by authen module for secured authentication with Django users, and Django user management.</br>
+🐯💬 It is simply an example as they are but reveal of the truth that the database fields need to be maintained and filter for target string operators and database common rules as database INFO management.</br>
 
 ```
 // Importing necessary libraries and modules
