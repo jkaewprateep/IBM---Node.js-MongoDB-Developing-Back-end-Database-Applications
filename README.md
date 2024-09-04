@@ -528,7 +528,8 @@ app.listen(port, () => {
 
 ### jwt ###
 
-🧸💬 Define constant, application methods, module export variable, define register, login and dashboard with jwt secured compoent .</br>
+🧸💬 Define constant, application methods, module export variable, define register, login, and dashboard with jwt secured component .</br>
+🦁💬 User authentication with jwt, it is important to sign-in users with the standard authentication method because they have validation, logging, and information integration results such as admin page, right, and permissions configuration you can retrieve and perform an action based on the user requirements and completeness of codes with data management and no custom method create.</br>
 
 ```
 // index.js
